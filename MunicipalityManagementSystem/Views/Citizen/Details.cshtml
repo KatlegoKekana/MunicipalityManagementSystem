@@ -1,0 +1,42 @@
+﻿@model MunicipalityManagementSystem.Models.CitizenManagement
+
+
+@{
+    ViewData["Title"] = "Citizen Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Citizen Details</h2>
+
+<!-- Table to display citizen details -->
+<table class="table">
+    <tr>
+        <th>Full Name</th>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Model.Address</td>
+    </tr>
+    <tr>
+        <th>Phone Number</th>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Date of Birth</th>
+        <td>@Model.DateOfBirth?.ToString("yyyy-MM-dd")</td>
+    </tr>
+    <tr>
+        <th>Registration Date</th>
+        <td>@Model.RegistrationDate.ToString("yyyy-MM-dd")</td>
+    </tr>
+</table>
+
+<!-- Navigation buttons -->
+<a href="@Url.Action("Edit", new { id = Model.CitizenID })" class="btn btn-warning">Edit</a>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>

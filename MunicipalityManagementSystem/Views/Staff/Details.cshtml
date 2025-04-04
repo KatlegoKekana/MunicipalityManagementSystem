@@ -1,0 +1,43 @@
+﻿@model MunicipalityManagementSystem.Models.StaffManagement
+
+
+@{
+    ViewData["Title"] = "Staff Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Staff Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Staff ID</th>
+        <td>@Model.StaffID</td>
+    </tr>
+    <tr>
+        <th>Full Name</th>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td>@Model.Position</td>
+    </tr>
+    <tr>
+        <th>Department</th>
+        <td>@Model.Department</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Phone Number</th>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Hire Date</th>
+        <td>@Model.HireDate.ToString("yyyy-MM-dd")</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Edit", new { id = Model.StaffID })" class="btn btn-warning">Edit</a>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>

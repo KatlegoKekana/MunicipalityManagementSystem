@@ -1,0 +1,39 @@
+﻿@model MunicipalityManagementSystem.Models.Reports
+
+
+@{
+    ViewData["Title"] = "Report Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Report Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Report ID</th>
+        <td>@Model.ReportID</td>
+    </tr>
+    <tr>
+        <th>Citizen ID</th>
+        <td>@Model.CitizenID</td>
+    </tr>
+    <tr>
+        <th>Report Type</th>
+        <td>@Model.ReportType</td>
+    </tr>
+    <tr>
+        <th>Details</th>
+        <td>@Model.Details</td>
+    </tr>
+    <tr>
+        <th>Submission Date</th>
+        <td>@Model.SubmissionDate.ToString("yyyy-MM-dd")</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>@Model.Status</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Edit", new { id = Model.ReportID })" class="btn btn-warning">Edit</a>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>

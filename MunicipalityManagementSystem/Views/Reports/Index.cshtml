@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MunicipalityManagementSystem.Models.Reports>
+
+
+@{
+    ViewData["Title"] = "Citizen Reports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citizen Reports</h2>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">New Report</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Report ID</th>
+            <th>Citizen ID</th>
+            <th>Report Type</th>
+            <th>Details</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReportID</td>
+                <td>@item.CitizenID</td>
+                <td>@item.ReportType</td>
+                <td>@item.Details</td>
+                <td>@item.SubmissionDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.ReportID })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", new { id = item.ReportID })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = item.ReportID })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

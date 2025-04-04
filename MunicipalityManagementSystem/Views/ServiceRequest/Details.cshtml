@@ -1,0 +1,35 @@
+﻿@model MunicipalityManagementSystem.Models.ServiceRequest
+
+
+@{
+    ViewData["Title"] = "ServiceRequest Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ServiceRequest Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Request ID</th>
+        <td>@Model.ServiceRequestID</td>
+    </tr>
+    <tr>
+        <th>Citizen ID</th>
+        <td>@Model.CitizenID</td>
+    </tr>
+    <tr>
+        <th>Service Type</th>
+        <td>@Model.ServiceRequestType</td>
+    </tr>
+    <tr>
+        <th>Request Date</th>
+        <td>@Model.RequestDate.ToString("yyyy-MM-dd")</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>@Model.Status</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Edit", new { id = Model.ServiceRequestID })" class="btn btn-warning">Edit</a>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>

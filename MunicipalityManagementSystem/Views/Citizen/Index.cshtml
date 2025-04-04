@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MunicipalityManagementSystem.Models.CitizenManagement>
+
+@{
+    ViewData["Title"] = "Citizen List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citizens List</h2>
+
+<!-- Add a link to create a new citizen -->
+<a class="btn btn-primary" href="@Url.Action("Create", "Citizen")">Create New Citizen</a>
+
+<!-- Table to display all citizens -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var citizen in Model)
+        {
+            <tr>
+                <td>@citizen.FullName</td>
+                <td>@citizen.Address</td>
+                <td>@citizen.PhoneNumber</td>
+                <td>@citizen.Email</td>
+                <td>@citizen.DateOfBirth?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <!-- Edit and Delete buttons -->
+                    <a class="btn btn-warning" href="@Url.Action("Edit", new { id = citizen.CitizenID })">Edit</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", new { id = citizen.CitizenID })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

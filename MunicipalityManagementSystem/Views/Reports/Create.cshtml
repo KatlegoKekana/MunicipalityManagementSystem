@@ -1,0 +1,38 @@
+﻿@model MunicipalityManagementSystem.Models.Reports
+
+
+@{
+    ViewData["Title"] = "Submit Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Submit Report</h2>
+
+<form asp-controller="Reports" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Citizen ID</label>
+        <input asp-for="CitizenID" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Report Type</label>
+        <input asp-for="ReportType" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Details</label>
+        <textarea asp-for="Details" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <select asp-for="Status" class="form-control">
+            <option>Under Review</option>
+            <option>Resolved</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+    <a href="@Url.Action("Index", "Reports")" class="btn btn-secondary">Back to List</a>
+</form>
+

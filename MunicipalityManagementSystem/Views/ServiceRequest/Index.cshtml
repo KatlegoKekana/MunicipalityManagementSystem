@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MunicipalityManagementSystem.Models.ServiceRequest>
+
+
+@{
+    ViewData["Title"] = "Service Requests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Service Requests</h2>
+
+<a href="@Url.Action("Create", "ServiceRequest")" class="btn btn-primary">New Service Request</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Citizen ID</th>
+            <th>Service Type</th>
+            <th>Request Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ServiceRequestID</td>
+                <td>@item.CitizenID</td>
+                <td>@item.ServiceRequestType</td>
+                <td>@item.RequestDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.ServiceRequestID })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", new { id = item.ServiceRequestID })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = item.ServiceRequestID })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
