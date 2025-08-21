@@ -26,3 +26,12 @@ This project demonstrates **enterprise-grade development practices**, including 
 ---
 
 ## 📂 Project Structure
+
+MunicipalityManagementSystem.sln
+└── MunicipalityManagementSystem/
+├── Controllers/ # Application logic
+├── Models/ # Entity classes & DbContext
+├── Views/ # Razor Pages (UI)
+├── Migrations/ # Database migrations
+├── wwwroot/ # Static assets (CSS, JS, images)
+└── Program.cs # Application entry point
